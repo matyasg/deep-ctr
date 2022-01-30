@@ -19,16 +19,16 @@ rng.seed(1234)
 batch_size=1000                                                          #batch size
 lr=0.0006                                                               #learning rate
 lambda1=0.0001# .01 
-hidden0=300                                                       #regularisation rate
+hidden0=200                                                       #regularisation rate
 hidden1 = 300 #hidden layer 1
 hidden2 = 100 #hidden layer 2
 acti_type='tanh'                                                    #activation type
 epoch = 100                                                               #epochs number
-advertiser = '2997'
+advertiser = '1458' # -- Need to change in case of another advertiser !!!! ---
 if len(sys.argv) > 1:
     advertiser = sys.argv[1]
-train_file='../data/train.fm.txt'             #training file
-test_file='../data/test.fm.txt'                   #test file
+train_file='/content/product-nets-distributed/pnn/'+advertiser+'/raw/train.txt'             #training file 
+test_file='/content/product-nets-distributed/pnn/'+advertiser+'/raw/test.txt'                   #test file 
 fm_model_file='../data/fm.model.txt'                   #fm model file                 #fm model file
 #feats = ut.feats_len(train_file)                                           #feature size
 
@@ -37,8 +37,8 @@ print train_file
 train_size=ut.file_len(train_file)                    #training size
 test_size=ut.file_len(test_file)                      #test size
 n_batch=train_size/batch_size                                        #number of batches
-x_dim=133465
-dropout=1
+x_dim=560815 #1458 -- Need to change in case of another advertiser !!!! ---
+dropout=0.97
 if advertiser=='2997':
     hidden0=200
     hidden1=300
